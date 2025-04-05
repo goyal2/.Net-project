@@ -56,7 +56,7 @@ pipeline {
         stage('Deploy to Azure') {
             steps {
                 bat '''
-                powershell Compress-Archive -Path WebApiJenkins\\publish\\* -DestinationPath publish.zip -Force
+                powershell Compress-Archive -Path ProductService\\publish\\* -DestinationPath publish.zip -Force
                 az webapp deployment source config-zip --resource-group jenkins-somya-rg --name "jenkins-somya-app123" --src "publish.zip"
 
                 '''
